@@ -1,0 +1,24 @@
+{
+  "name": "oktay-counter",
+  "version": "1.0.0",
+  "description": "simple elm example",
+  "main": "oktay-counter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "elm-make OktayCounter.elm --output dist/oktay-counter.js && cp index.html dist/",
+    "deploy": "surge dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HusseinMorsy/oktay-counter.git"
+  },
+  "keywords": [
+    "elm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HusseinMorsy/oktay-counter/issues"
+  },
+  "homepage": "https://github.com/HusseinMorsy/oktay-counter"
+}
