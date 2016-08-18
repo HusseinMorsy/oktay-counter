@@ -56,28 +56,41 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    ul []
-        [ viewHello "Oktay"
-        , viewHello "Ugur"
-        , viewHello "Esma"
+    div [ mainStyle ]
+        [ viewTitle "Oktay's Counter"
         , br [] []
-        , button [ onClick Eksi ] [ text "-" ]
+        , button [ onClick Eksi, buttonStyle ] [ text "-" ]
         , span [ counterStyle model ] [ text (toString model) ]
-        , button [ onClick Arti ] [ text "+" ]
+        , button [ onClick Arti, buttonStyle ] [ text "+" ]
         , br [] []
-        , button [ onClick Reset ] [ text "Reset" ]
+        , button [ onClick Reset, buttonStyle ] [ text "Reset" ]
         ]
 
 
-viewHello : String -> Html.Html a
-viewHello name =
-    li [] [ text ("Merhaba " ++ name) ]
+viewTitle : String -> Html.Html a
+viewTitle title =
+    h2 [ style [ ( "text-align", "center" ) ] ] [ text (title) ]
+
+
+mainStyle : Html.Attribute Msg
+mainStyle =
+    style
+        [ ( "display", "flex" )
+        , ( "flex-direction", "column" )
+        , ( "align-items", "center" )
+        , ( "justify-content", "center" )
+        ]
+
+
+buttonStyle : Html.Attribute Msg
+buttonStyle =
+    style [ ( "font-size", "40px" ), ( "margin", "0 10px" ) ]
 
 
 counterStyle : Model -> Html.Attribute Msg
 counterStyle model =
     style
-        [ ( "font-size", "18px" )
+        [ ( "font-size", "30px" )
         , ( "padding", "10px" )
         , ( "font-weight", "bold" )
         , ( "color"
